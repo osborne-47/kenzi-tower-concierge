@@ -5,9 +5,6 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from dotenv import load_dotenv
 
-from pydantic import BaseModel
-from typing import Optional, List
-
 load_dotenv()
 
 app = FastAPI(title="Kenzi Tower Concierge API")
@@ -125,28 +122,3 @@ async def update_ticket(ticket_id: int, update: TicketStatusUpdate):
             t["status"] = update.status
             return {"success": True, "ticket": t}
     return {"success": False, "error": "Not found"}
-
-
-    class HotelCreate(BaseModel):
-    name: str
-    slug: str
-    logo_base64: Optional[str] = None
-    room_count: int
-
-# In-memory storage (or swap with SQLite / Postgres)
-hotels_db = {}
-
-@app.post("/api/hotels")
-def create_hotel(hotel: HotelCreate):
-    hotels_db[hotel.slug] = hotel.dict()
-    return {"status": "success", "hotel": hotels_db[hotel.slug]}
-
-@app.get("/api/hotels")
-def list_hotels():
-    return list(hotels_db.values())
-
-@app.get("/api/hotels/{slug}")
-def get_hotel(slug: str):
-    if slug not in hotels_db:
-        return {"error": "Hotel not found"}, 404
-    return hotels_db[slug]
