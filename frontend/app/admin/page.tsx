@@ -105,7 +105,6 @@ export default function AdminHotelPanel() {
     <div style={{ minHeight: "100vh", backgroundColor: "#0b0e14", color: "#e2e8f0", fontFamily: "system-ui, -apple-system, sans-serif", padding: "32px 24px" }}>
       <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
         
-        {/* En-tête */}
         <header style={{ display: "flex", justifyContent: "space-between", alignItems: "center", borderBottom: "1px solid rgba(212,175,55,0.2)", paddingBottom: "24px", marginBottom: "32px" }}>
           <div>
             <div style={{ fontSize: "11px", letterSpacing: "2px", textTransform: "uppercase", color: "#d4af37", fontWeight: 700, marginBottom: "6px" }}>
@@ -120,7 +119,6 @@ export default function AdminHotelPanel() {
           </span>
         </header>
 
-        {/* Métriques */}
         <section style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "16px", marginBottom: "36px" }}>
           <div style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "12px", padding: "20px" }}>
             <div style={{ fontSize: "12px", color: "#94a3b8", textTransform: "uppercase", letterSpacing: "1px" }}>Hôtels Connectés</div>
@@ -136,10 +134,7 @@ export default function AdminHotelPanel() {
           </div>
         </section>
 
-        {/* Formulaire & Liste */}
         <div style={{ display: "grid", gridTemplateColumns: "minmax(340px, 420px) 1fr", gap: "32px", alignItems: "start", marginBottom: "40px" }}>
-          
-          {/* Formulaire */}
           <section style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(212,175,55,0.25)", borderRadius: "16px", padding: "28px" }}>
             <h2 style={{ fontSize: "18px", margin: "0 0 20px 0", color: "#fff", display: "flex", alignItems: "center", gap: "8px" }}>
               <span style={{ color: "#d4af37" }}>✦</span> Ajouter un Établissement
@@ -217,7 +212,6 @@ export default function AdminHotelPanel() {
             </form>
           </section>
 
-          {/* Liste */}
           <section>
             <h2 style={{ fontSize: "18px", margin: "0 0 20px 0", color: "#fff" }}>
               Établissements ({hotels.length})
@@ -269,7 +263,6 @@ export default function AdminHotelPanel() {
           </section>
         </div>
 
-        {/* Grille des Suites */}
         {selectedHotel && (
           <section style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "16px", padding: "28px" }}>
             <h3 style={{ fontSize: "20px", margin: "0 0 6px 0", color: "#fff" }}>
