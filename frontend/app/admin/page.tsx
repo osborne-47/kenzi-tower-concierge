@@ -68,7 +68,7 @@ export default function AdminHotelPanel() {
 
     const slug = name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
     const newHotel: HotelConfig = {
-      id: slu || `hotel-${Date.now()}`,
+      id: slug || `hotel-${Date.now()}`,
       name,
       city,
       logo: logoPreview,
@@ -83,7 +83,7 @@ export default function AdminHotelPanel() {
     setLogoPreview("");
   };
 
-  const handleDeleteHotel = (id: string, e: React.MouseEvent) => {
+  const handleeleteHotel = (id: string, e: React.MouseEvent) => {
     e.stopPropagation();
     const remaining = hotels.filter((h) => h.id !== id);
     setHotels(remaining);
@@ -114,20 +114,19 @@ export default function AdminHotelPanel() {
               Console d'Administration
             </h1>
           </div>
-          <span style={{ fontSize: "12px", bckground: "rgba(212,175,55,0.12)", color: "#d4af37", border: "1px solid rgba(212,175,55,0.3)", borderRadius: "999px", padding: "6px 14px", fontWeight: 600 }}>
+          <span style={{ fontSize: "12px", background: "rgba(212,175,55,0.12)", color: "#d4af37", border: "1px solid rgba(212,175,55,0.3)", borderRadius: "999px", padding: "6px 14px", fontWeight: 600 }}>
             ● Production Live
           </span>
         </header>
 
         <section style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "16px", marginBottom: "36px" }}>
-          <div style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "12px", padding: "20px" }}>
+          <div style={{ backgroundrgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "12px", padding: "20px" }}>
             <div style={{ fontSize: "12px", color: "#94a3b8", textTransform: "uppercase", letterSpacing: "1px" }}>Hôtels Connectés</div>
             <div style={{ fontSize: "32px", fontWeight: 700, color: "#fff", marginTop: "8px" }}>{hotels.length}</div>
           </div>
           <div style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "12px", padding: "20px" }}>
-            <div style={{ fontSize: "12px", color: "#94a3b8", textTransform: "upperc, letterSpacing: "1px" }}>Suites Déployées</div>
-            <div style={{ fontSize: "32px", fontWeight: 700, color: "#d4af37", marginTop: "8px" }}>{totalSuites}</div>
-          </div>
+            <div style={{ fontSize: "12px", color: "#94a3b8", textTransform: "uppercase", letterSpacing: "1px" }}>Suites Déployées</div>
+            <div style={{ fontSize: "32px", fontWeight: 700, color: "#d4af37", marginTop: "8px" }}>{totalSuites}</d          </div>
           <div style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "12px", padding: "20px" }}>
             <div style={{ fontSize: "12px", color: "#94a3b8", textTransform: "uppercase", letterSpacing: "1px" }}>Concierge IA</div>
             <div style={{ fontSize: "32px", fontWeight: 700, color: "#4ade80", marginTop: "8px" }}>Actif</div>
@@ -136,7 +135,7 @@ export default function AdminHotelPanel() {
 
         <div style={{ display: "grid", gridTemplateColumns: "minmax(340px, 420px) 1fr", gap: "32px", alignItems: "start", marginBottom: "40px" }}>
           <section style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(212,175,55,0.25)", borderRadius: "16px", padding: "28px" }}>
-            <h2 style={{ fontSize: "18px", margin: "0 0 20px 0", color: "#fff", display: "flex", alignItems: enter", gap: "8px" }}>
+            <h2 style={{ fontSize: "18px", margin: "0 0 20px 0", color: "#fff", display: "flex", alignItems: "center", gap: "8px" }}>
               <span style={{ color: "#d4af37" }}>✦</span> Ajouter un Établissement
             </h2>
             <form onSubmit={handleCreateHotel} style={{ display: "flex", flexDirection: "column", gap: "18px" }}>
@@ -144,8 +143,7 @@ export default function AdminHotelPanel() {
                 <label style={{ display: "block", fontSize: "13px", fontWeight: 600, color: "#cbd5e1", marginBottom: "6px" }}>Nom de l'Hôtel</label>
                 <input
                   type="text"
-                  placeholder="ex: Four Seasons Casablanca"
-                  value={name}
+                  placeholder="ex: Four Seasons Casablanc                 value={name}
                   onChange={(e) => setName(e.target.value)}
                   required
                   style={{ width: "100%", padding: "12px", background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.12)", borderRadius: "8px", color: "#fff", boxSizing: "border-box" }}
@@ -154,7 +152,7 @@ export default function AdminHotelPanel() {
 
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" }}>
                 <div>
-                  <l style={{ display: "block", fontSize: "13px", fontWeight: 600, color: "#cbd5e1", marginBottom: "6px" }}>Ville</label>
+                  <label style={{ display: "block", fontSize: "13px", fontWeight: 600, color: "#cbd5e1", marginBottom: "6px" }}>Ville</label>
                   <input
                     type="text"
                     placeholder="Casablanca"
@@ -165,7 +163,7 @@ export default function AdminHotelPanel() {
                   />
                 </div>
                 <div>
-                  <label style={{ display: "block", fontSize: "13px", fontWeight: 600, color: "#cbd5e1", marginBottom: "6px" }}>Nb Chambres</label>
+                  <label style={{ display: "block", fontSize: "13px", fontWeight 600, color: "#cbd5e1", marginBottom: "6px" }}>Nb Chambres</label>
                   <input
                     type="number"
                     min="1"
@@ -188,7 +186,7 @@ export default function AdminHotelPanel() {
                 />
                 {logoPreview && (
                   <div style={{ marginTop: "10px", padding: "10px", background: "#05070a", borderRadius: "8px", border: "1px dashed rgba(212,175,55,0.4)", textAlign: "center" }}>
-                    <img src={logoPreview} alt="Aperçu" style={{ maxHeight: "50px", maxWidth: "100%", objectFit "contain" }} />
+                    <img src={logoPreview} alt="Aperçu" style={{ maxHeight: "50px", maxWidth: "100%", objectFit: "contain" }} />
                   </div>
                 )}
               </div>
@@ -203,7 +201,7 @@ export default function AdminHotelPanel() {
                   border: "none",
                   borderRadius: "8px",
                   fontWeight: 700,
-                  fontSize: "14px",
+                 fontSize: "14px",
                   cursor: "pointer",
                 }}
               >
@@ -218,7 +216,7 @@ export default function AdminHotelPanel() {
             </h2>
             <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
               {hotels.map((hotel) => {
-                const isSelected = selectedHotel?.== hotel.id;
+                const isSelected = selectedHotel?.id === hotel.id;
                 return (
                   <div
                     key={hotel.id}
@@ -227,7 +225,7 @@ export default function AdminHotelPanel() {
                       background: isSelected ? "rgba(212,175,55,0.08)" : "rgba(255,255,255,0.02)",
                       border: isSelected ? "1px solid #d4af37" : "1px solid rgba(255,255,255,0.08)",
                       borderRadius: "12px",
-                      padding: "18px 22px",
+                      padding: "18px 2,
                       cursor: "pointer",
                       display: "flex",
                       alignItems: "center",
@@ -250,7 +248,7 @@ export default function AdminHotelPanel() {
                     <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
                       <button
                         onClick={(e) => handleDeleteHotel(hotel.id, e)}
-                        style={{ background: "transparent", border: "none", color: "#64748b", cursor: "pointer",ontSize: "14px" }}
+                        style={{ background: "transparent", border: "none", color: "#64748b", cursor: "pointer", fontSize: "14px" }}
                       >
                         ✕
                       </button>
@@ -259,8 +257,7 @@ export default function AdminHotelPanel() {
                   </div>
                 );
               })}
-            </div>
-          </section>
+            </          </section>
         </div>
 
         {selectedHotel && (
@@ -272,8 +269,8 @@ export default function AdminHotelPanel() {
               Liens uniques de la chambre 1 à {selectedHotel.roomCount} :
             </p>
 
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(180px, 1fr))", gap: "12px", maxHeight: "36verflowY: "auto" }}>
-              {Array.from({ length: selectedHotel.roomCount }, (_, i) => i + 1).map((roomNum) => (
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(180px, 1fr))", gap: "12px", maxHeight: "360px", overflowY: "auto" }}>
+              {Array.from({ length: selectedHotel.roomCount }, (_, > i + 1).map((roomNum) => (
                 <div
                   key={roomNum}
                   style={{
@@ -305,7 +302,7 @@ export default function AdminHotelPanel() {
                     <a
                       href={`/?hotel=${selectedHotel.id}&room=${roomNum}`}
                       target="_blank"
-                      rel="noreferrer"
+                     rel="noreferrer"
                       style={{
                         padding: "4px 8px",
                         fontSize: "11px",
@@ -320,7 +317,7 @@ export default function AdminHotelPanel() {
                     </a>
                   </div>
                 </div>
-           ))}
+              ))}
             </div>
           </section>
         )}
